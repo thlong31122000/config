@@ -1,5 +1,8 @@
 export PAGER="less"
 
+# PLUGINS
+ZSH_CONFIG_PATH="$HOME/MySpace/Scripts/zsh-plugins"
+
 # APPLICATION PATHS
 # FLUTTER_PATH="$HOME/MySpace/WorkSpace/SETUP/flutter/bin"
 # DOOM_EMACS_PATH="$HOME/.emacs.d/bin"
@@ -11,8 +14,10 @@ export PAGER="less"
 # export PATH
 
 # PROMPT
+source "$ZSH_CONFIG_PATH/zsh-git-prompt/zshrc.sh"
+
 NEWLINE=$'\n'
-PROMPT="%(?.%F{green}√.%F{red}?%?)%f %B%F{51}%2~%f%b %#${NEWLINE} » "
+PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{51}%2~%f%b %#${NEWLINE} $(git_super_status) » '
 RPROMPT="%* "
 
 # Add a new line before each prompt is rendered
@@ -42,8 +47,6 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 
-# PLUGINS
-ZSH_CONFIG_PATH="$HOME/MySpace/Scripts/zsh-plugins"
 
 # zsh-colored-man-pages
 source "$ZSH_CONFIG_PATH/zsh-colored-man-pages/colored-man-pages.plugin.zsh"
